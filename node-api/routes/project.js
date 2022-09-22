@@ -1,10 +1,25 @@
 const router = require("express").Router();
 
-router.route("/").get((req, res, next) =>
-  Promise.resolve()
-    .then(() => ({ name: "project" }))
-    .then((project) => res.json(project))
-    .catch((err) => next(err))
-);
+const { Project } = require("../models");
+const authAdmin = require("../middleware/authAdmin");
+
+router
+  .route("/")
+  .get([
+    authAdmin,
+    (req, res, next) =>
+      Promise.resolve()
+        .then(() => Project.findAll())
+        .then((projects) => res.json(projects))
+        .catch((err) => next(err)),
+  ])
+  .post([
+    authAdmin,
+    (req, res, next) =>
+      Promise.resolve()
+        .then(() => Project.create(req.body))
+        .then((project) => res.status(201).json(project))
+        .catch((err) => next(err)),
+  ]);
 
 module.exports = router;

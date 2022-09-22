@@ -17,9 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // config routes
 app.use("/api/project", Project);
-app.use('/api/auth', Auth);
+app.use("/api/auth", Auth);
 // dev usage only, user generator
-app.use('/api/dev', Dev);
+app.use("/api/dev", Dev);
 
 app.use((req, res, next) => {
   next(createError(404));
