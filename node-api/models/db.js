@@ -1,12 +1,9 @@
-const sequelize = new Sequelize(
-  "portfolio",
-  "root",
-  process.env.MYSQL_PASSWORD,
-  {
-    host: "localhost",
-    dialect: "mysql",
-  }
-);
+const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD || "black-magic";
+
+const sequelize = new Sequelize("portfolio", "root", MYSQL_PASSWORD, {
+  host: "localhost",
+  dialect: "mysql",
+});
 
 sequelize
   .authenticate()
@@ -18,4 +15,3 @@ sequelize
   });
 
 module.exports = sequelize;
-
