@@ -2,11 +2,12 @@ const router = require("express").Router();
 
 const { Project } = require("../models");
 const authAdmin = require("../middleware/authAdmin");
+const authApiKey = require("../middleware/authApiKey");
 
 router
   .route("/")
   .get([
-    authAdmin,
+    authApiKey,
     (req, res, next) =>
       Promise.resolve()
         .then(() => Project.findAll())
