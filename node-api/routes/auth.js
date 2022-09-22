@@ -2,6 +2,7 @@ const router = require("express").Router();
 const jtw = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const createError = require("http-errors");
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || "secret";
 
 const { User } = require("../models");
 

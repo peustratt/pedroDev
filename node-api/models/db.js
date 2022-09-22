@@ -1,3 +1,4 @@
+const Sequelize = require("sequelize");
 const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD || "black-magic";
 
 const sequelize = new Sequelize("portfolio", "root", MYSQL_PASSWORD, {
