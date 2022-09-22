@@ -4,7 +4,7 @@ const helmet = require("helmet");
 const logger = require("morgan");
 const createError = require("http-errors");
 
-const { Project } = require("./routes");
+const { Auth, Project, Dev } = require("./routes");
 
 const app = express();
 
@@ -17,6 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // config routes
 app.use("/api/project", Project);
+app.use('/api/auth', Auth);
+// dev usage only, user generator
+app.use('/api/dev', Dev);
 
 app.use((req, res, next) => {
   next(createError(404));

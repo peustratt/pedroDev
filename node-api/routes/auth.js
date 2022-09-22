@@ -1,26 +1,26 @@
 const router = require("express").Router();
-const jtw = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const createError = require("http-errors");
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || "secret";
 
 const { User } = require("../models");
 
-router.route("/").get((req, res, next) =>
+router.route("/").post((req, res, next) =>
   Promise.resolve()
-    .then(() => User.findOne(req.body))
-    .then((user) => {
+    .then(() => User.findOne({ user: req.body.user }))
+    .then((user) =>
       user
         ? bcrypt
             .compare(req.body.password, user.password)
             .then((isValidated) =>
               isValidated
-                ? jtw.sign(user.name, ACCESS_TOKEN_SECRET)
-                : createError(401)
+                ? jwt.sign(JSON.stringify(user), ACCESS_TOKEN_SECRET)
+                : next(createError(401))
             )
-        : next(createError(404));
-    })
-    .then((token) => res.status(200).json({ token }))
+        : next(createError(404))
+    )
+    .then((accessToken) => res.json({ accessToken }))
     .catch((err) => next(err))
 );
 

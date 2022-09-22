@@ -2,15 +2,13 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
 const { User } = require("../models");
-const USER = process.env.USER;
-const PASSWORD = process.env.USER_PASSWORD;
 
 router.route("/").get((req, res, next) =>
   Promise.resolve()
-    .then(() => bcrypt.hash(PASSWORD, 10))
+    .then(() => bcrypt.hash(process.env.USER_PASSWORD, 10))
     .then((hash) =>
       User.create({
-        user: USER,
+        user: process.env.USER,
         password: hash,
       })
     )
