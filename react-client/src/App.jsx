@@ -1,4 +1,4 @@
-import GlobalStyle, {MainHeading} from "./GlobalStyle";
+import GlobalStyle, { MainHeading } from "./GlobalStyle";
 
 function App() {
   return (
