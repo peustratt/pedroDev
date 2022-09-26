@@ -1,5 +1,38 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+export const theme = {
+  colors: {
+    primary: {
+      light: "#42a5f5",
+      main: "#1976d2",
+      dark: "#1565c0",
+    },
+    secondary: {
+      light: "#ba68c8",
+      main: "#9c27b0",
+      dark: "#7b1fa2",
+    },
+    error: {
+      light: "#ff9800",
+      main: "#ed6c02",
+      dark: "#e65100",
+    },
+    info: {
+      light: "#03a9f4",
+      main: "#0288d1",
+      dark: "#01579b",
+    },
+    success: {
+      light: "#4caf50",
+      main: "#2e7d32",
+      dark: "#1b5e20",
+    },
+  },
+  shadows: {
+    primary: "0 1px 6px 0 rgb(32 33 36 / .28)",
+  },
+};
+
 const GlobalStyle = createGlobalStyle`
 *,
 ::before,
@@ -7,6 +40,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Work Sans', sans-serif;
+    color: #303030;
 }`;
 
 export const Container = styled.div`
@@ -22,6 +57,7 @@ export const Container = styled.div`
 `;
 
 export const MainHeading = styled.h1`
+  font-weight: 800;
   font-size: clamp(2.3rem, 6vw, 4.5rem);
   margin-bottom: 2rem;
   width: 100%;
@@ -103,4 +139,3 @@ export const Column = styled.div`
 export const Button = styled.button``;
 
 export default GlobalStyle;
-
