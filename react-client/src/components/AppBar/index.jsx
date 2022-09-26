@@ -3,9 +3,19 @@ import { GoMarkGithub } from "react-icons/go";
 import { FaLinkedin } from "react-icons/fa";
 import { BiMenu } from "react-icons/bi";
 import AppBarStyled, { IconsWrapper, AppBarContainer } from "./style";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Sobre", path: "/sobre" },
+  { name: "Projetos", path: "/projetos" },
+  { name: "Tecnologias", path: "/tecnologias" },
+];
 
 const AppBar = () => {
   const [open, setOpen] = useState(false);
+  const { width, height } = useWindowDimensions();
+  const navLinksElements = navLinks.map((link) => <li>{link.name}</li>);
 
   return (
     <AppBarStyled>
@@ -14,9 +24,14 @@ const AppBar = () => {
           <GoMarkGithub />
           <FaLinkedin />
         </IconsWrapper>
-        <div className="hamburguer">
-          <BiMenu />
-        </div>
+
+        {width < 600 ? (
+          <div className="hamburguer">
+            <BiMenu />
+          </div>
+        ) : (
+          <ul className="nav-list">{navLinksElements}</ul>
+        )}
       </AppBarContainer>
     </AppBarStyled>
   );

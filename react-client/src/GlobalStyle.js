@@ -66,7 +66,7 @@ export const MainHeading = styled.h1`
 `;
 
 export const Heading = styled.h2`
-  font-size: clamp(1.3rem, 13vw, 3.1rem);
+  font-size: clamp(1.3rem, 10vw, 3.1rem);
   margin: ${({ margin }) => (margin ? margin : "")};
   margin-bottom: ${({ marginBottom }) => (marginBottom ? marginBottom : "")};
   margin-top: ${({ marginTop }) => (marginTop ? marginTop : "")};

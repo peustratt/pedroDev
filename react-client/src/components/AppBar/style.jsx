@@ -31,6 +31,20 @@ export const AppBarContainer = styled(Container)`
       font-size: 1.8em;
     }
   }
+  .nav-list {
+    display: flex;
+    gap: 1.5em;
+    list-style: none;
+
+    > li {
+      cursor: pointer;
+      font-weight: 700;
+      transition: 120ms;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
 `;
 
 export const IconsWrapper = styled.div`
