@@ -5,7 +5,6 @@ const HeroSection = styled(Section)`
   position: relative;
   height: calc(100vh - 50px);
   display: flex;
-  border: 1px solid red;
   margin-top: 50px;
 `;
 
@@ -52,17 +51,18 @@ export const HeroContainer = styled(Container)`
     align-items: center;
 
     > button {
-      margin-top: 3em;
-      width: fit-content;
       background-color: ${({ theme }) => theme.colors.primary.main};
-      padding: 0.5em 1em;
       border-radius: 5px;
       border: none;
-      font-size: 1.2em;
-      font-weight: 600;
-      transition: all 0.1s ease-in-out;
-      transform-origin: center;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      font-size: 1.2em;
+      font-weight: 700;
+      margin-top: 3em;
+      padding: 0.5em 1em;
+      transform-origin: center;
+      transition: all 0.1s ease-in-out;
+      text-transform: uppercase;
+      width: fit-content;
 
       &:hover {
         transform: scale(1.015);

@@ -40,6 +40,5 @@ export const IconsWrapper = styled.div`
     font-size: 1.25em;
   }
 `;
-// export const Icon = styled.div``;
 
 export default AppBarStyled;
