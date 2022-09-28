@@ -3,7 +3,7 @@ import { Section, Container } from "../../GlobalStyle";
 
 const HeroSection = styled(Section)`
   position: relative;
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
   display: flex;
   margin-top: 50px;
 `;

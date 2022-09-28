@@ -9,6 +9,7 @@ const AppBarStyled = styled.nav`
   height: 50px;
   box-shadow: ${({ theme }) => theme.shadows.primary};
   background-color: ${({ theme }) => theme.colors.primary.main};
+  z-index: 2;
 `;
 
 export const AppBarContainer = styled(Container)`
