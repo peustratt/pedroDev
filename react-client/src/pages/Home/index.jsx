@@ -1,5 +1,6 @@
 import AppBar from "../../components/AppBar";
-import Hero from '../../components/Hero';
+import Hero from "../../components/Hero";
+import Projects from "../../components/Projects";
 import Tecnologies from "../../components/Tecnologies";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <AppBar />
       <Hero />
       <Tecnologies />
+      <Projects />
     </div>
   );
 };
