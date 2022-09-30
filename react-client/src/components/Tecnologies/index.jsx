@@ -27,8 +27,8 @@ const Tecnologies = () => {
               Principais
             </TecnologiesSecondaryHeading>
             <TecnologiesIcons>
-              {main_icons.map((i) => (
-                <IconWrapper onClick={() => handleLink(i.link)}>
+              {main_icons.map((i, index) => (
+                <IconWrapper key={index} onClick={() => handleLink(i.link)}>
                   <TecnologiesTextWrapper>{i.name}</TecnologiesTextWrapper>
                   {i.icon}
                 </IconWrapper>
@@ -40,8 +40,8 @@ const Tecnologies = () => {
               Conhecimentos
             </TecnologiesSecondaryHeading>
             <TecnologiesIcons>
-              {secondary_icons.map((i) => (
-                <IconWrapper onClick={() => handleLink(i.link)}>
+              {secondary_icons.map((i, index) => (
+                <IconWrapper key={index} onClick={() => handleLink(i.link)}>
                   <TecnologiesTextWrapper>{i.name}</TecnologiesTextWrapper>
                   {i.icon}
                 </IconWrapper>

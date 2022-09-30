@@ -15,7 +15,9 @@ const navLinks = [
 const AppBar = () => {
   const [open, setOpen] = useState(false);
   const { width, height } = useWindowDimensions();
-  const navLinksElements = navLinks.map((link) => <li>{link.name}</li>);
+  const navLinksElements = navLinks.map((link, index) => (
+    <li key={index}>{link.name}</li>
+  ));
 
   return (
     <AppBarStyled>
